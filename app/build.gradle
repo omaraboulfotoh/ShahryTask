@@ -1,0 +1,173 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+    id 'kotlin-parcelize'
+    id 'com.google.gms.google-services'
+}
+
+android {
+
+    compileSdk Configs.compileSdkVersion
+
+    defaultConfig {
+        applicationId Configs.applicationId
+        minSdk Configs.minSdkVersion
+        targetSdk Configs.targetSdkVersion
+        versionCode Configs.versionCode
+        versionName Configs.versionName
+        flavorDimensions "default"
+
+        testInstrumentationRunner Configs.testInstrumentationRunner
+    }
+
+    buildTypes {
+        debug {
+            debuggable true
+            minifyEnabled true
+            shrinkResources true
+        }
+        release {
+            minifyEnabled true
+            shrinkResources true
+            debuggable true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    productFlavors {
+        dev {
+            dimension 'default'
+            buildConfigField "String", "BASE_URL", "\"https://d96tlauoud.execute-api.us-east-2.amazonaws.com/\""
+            buildConfigField "String", "IMAGE_BASE_URL", "\"https://beljoumla-products.s3.us-east-2.amazonaws.com/\""
+            versionNameSuffix "-dev"
+        }
+
+        prod {
+            dimension 'default'
+            buildConfigField "String", "BASE_URL", "\"https://d96tlauoud.execute-api.us-east-2.amazonaws.com\""
+            buildConfigField "String", "IMAGE_BASE_URL", "\"https://beljoumla-products.s3.us-east-2.amazonaws.com/\""
+            versionNameSuffix "-prod"
+
+
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+    kotlinOptions {
+        jvmTarget = '11'
+    }
+    buildFeatures {
+        dataBinding true
+    }
+}
+
+dependencies {
+    //Imported Modules
+    implementation project(path: ':core')
+    implementation project(path: ':remote')
+    //Support
+    implementation(Dependencies.kotlin)
+    implementation(Dependencies.coreKtx)
+    implementation(Dependencies.appCompat)
+
+    //UI
+    implementation(Dependencies.material)
+    implementation(Dependencies.constraintLayout)
+    implementation(Dependencies.swipeRefreshLayout)
+
+    //DI-Hilt
+    implementation(Dependencies.daggerHilt)
+    implementation(Dependencies.hiltNavigationCompose)
+
+    kapt(Dependencies.daggerHiltCompiler)
+
+    //Data
+    implementation Dependencies.roomRuntime
+    kapt Dependencies.roomCompiler
+    implementation Dependencies.roomKtx
+    implementation Dependencies.datastore
+    implementation Dependencies.datastorePrefers
+
+
+//    implementation(Dependencies.sandwish)
+
+    //Lifecycle
+    implementation(Dependencies.lifecycle_viewmodel)
+    implementation(Dependencies.lifecycle_liveData)
+    implementation(Dependencies.lifecycle_runtime)
+
+    //Json
+    implementation(Dependencies.moshi)
+    implementation(Dependencies.gson)
+    kapt(Dependencies.moshiCodegen)
+
+    //Threading-Coroutines
+    implementation(Dependencies.coroutinesCore)
+    implementation(Dependencies.coroutinesCoreAndroid)
+
+    //Navigation Component
+    implementation Dependencies.navigationComponent
+    implementation Dependencies.navigationComponentFrag
+
+    //Firebase
+    implementation platform(Dependencies.firebase_bom)
+    implementation(Dependencies.firebaseAuth)
+    implementation(Dependencies.firebaseDyamicLinks)
+    implementation(Dependencies.firebaseMessaging)
+
+    implementation(Dependencies.retrofit)
+    implementation(Dependencies.okHttp)
+
+    //Jetpack Compose
+//    implementation(Dependencies.composeMaterial)
+//    implementation(Dependencies.composeAnimation)
+//    implementation(Dependencies.composeTooling)
+//    implementation(Dependencies.composeActivity)
+//    implementation(Dependencies.composeViewModel)
+//    implementation(Dependencies.composeLiveData)
+//    implementation(Dependencies.composeConstraintLayout)
+//    implementation(Dependencies.composeNavigation)
+
+
+// image loader
+    implementation Dependencies.picasso
+
+    //Utils
+    implementation(Dependencies.accompanistSwipeRefresh)
+    implementation Dependencies.animationLib
+    implementation Dependencies.legacy
+
+    //Unit Testing
+    testImplementation(Dependencies.junit4)
+    testImplementation(Dependencies.junitExtensionsKtx)
+    testImplementation(Dependencies.truth)
+    testImplementation(Dependencies.mockk)
+    testImplementation(Dependencies.robolectric)
+    testImplementation(Dependencies.androidArchCoreTest)
+    testImplementation(Dependencies.coroutinesTest)
+
+    //UI Testing
+    androidTestImplementation(Dependencies.junitExtensions)
+    androidTestImplementation(Dependencies.espressoCore)
+    androidTestImplementation(Dependencies.composeUiTest)
+
+
+    // map
+    implementation 'com.google.android.gms:play-services-maps:18.0.2'
+    implementation 'com.google.android.gms:play-services-gcm:17.0.0'
+    implementation 'com.google.android.gms:play-services-location:19.0.1'
+    implementation('com.adevinta.android:leku:9.1.2') {
+        exclude group: 'com.google.android.gms'
+        exclude group: 'androidx.appcompat'
+    }
+
+
+}
+// Allow references to generated code
+kapt {
+    correctErrorTypes = true
+}

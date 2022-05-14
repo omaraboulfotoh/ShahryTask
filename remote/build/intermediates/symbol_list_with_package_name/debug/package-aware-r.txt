@@ -1,0 +1,2 @@
+com.shahrytask.network
+string app_name

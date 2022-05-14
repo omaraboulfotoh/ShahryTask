@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "774075402330",
+    "project_id": "beljoumla-310817",
+    "storage_bucket": "beljoumla-310817.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:774075402330:android:38a29f05d6ad5d5964b063",
+        "android_client_info": {
+          "package_name": "com.example.shahrytask"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "774075402330-p4roj9ubbfdskm97ids9uim9ecgl9c7l.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.shahrytask",
+            "certificate_hash": "2787871c784289f4f368166d375d79b08219bc6b"
+          }
+        },
+        {
+          "client_id": "774075402330-4e49eun453uankfrnaslvh4pqp8ehr4d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAIBb9orT6kPjihVWrdSlE7cVPi7Y7_SS0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "774075402330-4e49eun453uankfrnaslvh4pqp8ehr4d.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
