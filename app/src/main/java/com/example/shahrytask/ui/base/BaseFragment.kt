@@ -7,8 +7,10 @@ import androidx.fragment.app.Fragment
 import com.example.shahrytask.R
 import com.example.shahrytask.utils.NetworkHelper
 import com.google.android.material.snackbar.Snackbar
+import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
+@AndroidEntryPoint
 open class BaseFragment :Fragment() {
 
     @Inject

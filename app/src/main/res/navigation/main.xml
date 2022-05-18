@@ -10,5 +10,15 @@
         android:id="@+id/homeFragment"
         android:name="com.example.shahrytask.ui.home.HomeFragment"
         android:label="HomeFragment"
-        tools:layout="@layout/fragment_home"></fragment>
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_homeFragment_to_postsFragment"
+            app:destination="@id/postsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/postsFragment"
+        android:name="com.example.shahrytask.ui.posts.AuthorPostsFragment"
+        android:label="AuthorPostsFragment"
+        tools:layout="@layout/fragment_author_posts" />
 </navigation>

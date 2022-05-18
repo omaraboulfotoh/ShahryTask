@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layoutDirection="locale"
+    android:textDirection="locale">
+
+    <data>
+
+        <variable
+            name="post"
+            type="com.shahrytask.network.model.responses.PostModel" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        app:cardCornerRadius="2dp"
+        app:cardElevation="0dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:paddingBottom="8dp"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/viewHeader"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    app:imageUrl="@{post.imageUrl}" />
+
+                <TextView
+                    android:id="@+id/tvPostTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#55000000"
+                    android:fontFamily="@font/ibm_arabic_bold"
+                    android:gravity="start|center_vertical"
+                    android:padding="8dp"
+                    android:singleLine="false"
+                    android:text="@{post.title}"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/fontSizeMedium"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    tools:text="hsdfsd hsdfjsdhf" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/tvPostBody"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:gravity="start|center_vertical"
+                android:singleLine="false"
+                android:text="@{post.body}"
+                android:textColor="@color/black"
+                android:textDirection="locale"
+                android:textSize="@dimen/fontSizeMediumSmall"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/viewHeader"
+                tools:text="kjasbdfkjasdfba s ausidkfjgasdfiu kjasugdfajsdhf kajsdgfhaksjdfh jasgdfhkajsdf " />
+
+            <TextView
+                android:id="@+id/tvPostdate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginBottom="8dp"
+                android:gravity="start|center_vertical"
+                android:singleLine="false"
+                android:text="@{post.date}"
+                android:textColor="@color/warm_grey"
+                android:textDirection="locale"
+                android:textSize="@dimen/fontSizeSmall"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvPostBody"
+                tools:text="22-08-229" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>
