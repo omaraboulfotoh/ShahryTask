@@ -17,4 +17,7 @@ class RemoteDataSourceImp @Inject constructor(private val apiServices: ApiServic
     private fun getDeviceToken() = ""
     private fun getDeviceID() = ""
     private fun getDeviceType() = "android"
+
+
+    override suspend fun getAuthors() = apiServices.getAuthors()
 }

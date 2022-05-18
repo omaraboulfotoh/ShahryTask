@@ -1,16 +1,30 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.ShahryTask" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <style name="Theme.ShahryTask"  parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_500</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
-        <item name="colorOnPrimary">@color/white</item>
-        <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/teal_200</item>
-        <item name="colorSecondaryVariant">@color/teal_700</item>
-        <item name="colorOnSecondary">@color/black</item>
+        <item name="colorPrimary">@color/darkish_purpble</item>
+        <item name="colorPrimaryVariant">@color/darkish_purpble</item>
+        <item name="colorOnPrimary">@color/darkish_purpble</item>
+        <item name="colorAccent">@color/darkish_purpble</item>
+        <!--        <item name="android:windowTranslucentStatus">true</item>-->
+
+        <!--        &lt;!&ndash; Secondary brand color. &ndash;&gt;-->
+        <!--        <item name="colorSecondary">@color/teal_200</item>-->
+        <!--        <item name="colorSecondaryVariant">@color/teal_700</item>-->
+        <!--        <item name="colorOnSecondary">@color/black</item>-->
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <item name="android:statusBarColor" tools:targetApi="l">@color/white_grey</item>
         <!-- Customize your theme here. -->
+        <item name="popupMenuStyle">@style/PopupMenuStyle</item>
     </style>
+
+    <style name="PopupMenuStyle" parent="@style/Widget.AppCompat.PopupMenu">
+        <item name="android:popupBackground">@color/white_grey</item>
+        <item name="android:popupElevation">2dp</item>
+        <item name="popupMenuBackground">@color/white_grey</item>
+        <item name="android:textColor">@color/darkish_purpble</item>
+        <item name="itemTextColor">@color/darkish_purpble</item>
+
+    </style>
+
 </resources>

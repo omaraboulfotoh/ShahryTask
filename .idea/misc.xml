@@ -6,6 +6,8 @@
         <entry key="app/src/main/res/drawable/shape_circle_grey.xml" value="0.1885" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.340625" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.340625" />
+        <entry key="app/src/main/res/layout/item_auther.xml" value="0.31979166666666664" />
+        <entry key="app/src/main/res/layout/view_toolbar.xml" value="0.31979166666666664" />
       </map>
     </option>
   </component>

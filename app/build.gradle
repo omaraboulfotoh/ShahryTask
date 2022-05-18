@@ -39,15 +39,15 @@ android {
     productFlavors {
         dev {
             dimension 'default'
-            buildConfigField "String", "BASE_URL", "\"https://d96tlauoud.execute-api.us-east-2.amazonaws.com/\""
-            buildConfigField "String", "IMAGE_BASE_URL", "\"https://beljoumla-products.s3.us-east-2.amazonaws.com/\""
+            buildConfigField "String", "BASE_URL", "\"https://sym-json-server.herokuapp.com/\""
+            buildConfigField "String", "IMAGE_BASE_URL", "\"https://sym-json-server.herokuapp.com/\""
             versionNameSuffix "-dev"
         }
 
         prod {
             dimension 'default'
-            buildConfigField "String", "BASE_URL", "\"https://d96tlauoud.execute-api.us-east-2.amazonaws.com\""
-            buildConfigField "String", "IMAGE_BASE_URL", "\"https://beljoumla-products.s3.us-east-2.amazonaws.com/\""
+            buildConfigField "String", "BASE_URL", "\"https://sym-json-server.herokuapp.com/\""
+            buildConfigField "String", "IMAGE_BASE_URL", "\"https://sym-json-server.herokuapp.com/\""
             versionNameSuffix "-prod"
 
 

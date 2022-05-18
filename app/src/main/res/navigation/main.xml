@@ -3,7 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
-    app:startDestination="@id/main"
+    app:startDestination="@id/homeFragment"
     tools:ignore="ExtraText">
 
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.shahrytask.ui.home.HomeFragment"
+        android:label="HomeFragment"
+        tools:layout="@layout/fragment_home"></fragment>
 </navigation>

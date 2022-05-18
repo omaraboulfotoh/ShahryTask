@@ -2,4 +2,5 @@
     <string name="app_name">Shahry Task</string>
 
     <string name="no_internet_connection">انت غير متصل بالإنترنت</string>
+    <string name="home">Home</string>
 </resources>
