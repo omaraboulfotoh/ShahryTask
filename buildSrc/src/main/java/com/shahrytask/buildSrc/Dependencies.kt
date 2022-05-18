@@ -6,7 +6,6 @@ object Dependencies {
     const val kotlin = "org.jetbrains.kotlin:kotlin-stdlib:${Versions.kotlinVersion}"
     const val coreKtx = "androidx.core:core-ktx:${Versions.coreKtxVersion}"
     const val appCompat = "androidx.appcompat:appcompat:${Versions.appCompatVersion}"
-
     //UI
     const val material = "com.google.android.material:material:${Versions.materialVersion}"
     const val constraintLayout =
