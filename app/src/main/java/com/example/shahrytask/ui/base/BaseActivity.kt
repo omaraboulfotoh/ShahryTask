@@ -47,7 +47,7 @@ open class BaseActivity : AppCompatActivity() {
 
     private fun setUpAppLocalization(context: Context?) {
         if (context != null) {
-            LocalizationManager.changeAppLocale(context, "ar")
+            LocalizationManager.changeAppLocale(context, "en")
         }
     }
 }

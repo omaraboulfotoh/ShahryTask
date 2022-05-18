@@ -46,12 +46,6 @@ class HomeFragment : BaseFragment() {
         binding.lifecycleOwner = this
         initView()
         getList()
-
-        binding.swipeToRefresh.setOnRefreshListener {
-            binding.swipeToRefresh.isRefreshing = true
-            adapter.submitList(null)
-            getList()
-        }
     }
 
     private fun getList() {
@@ -62,7 +56,6 @@ class HomeFragment : BaseFragment() {
                         binding.swipeToRefresh.isRefreshing = false
                         when (it) {
                             is Result.Loading -> {
-
                             }
                             is Result.Success -> {
                                 it.data?.let { data ->
@@ -84,6 +77,12 @@ class HomeFragment : BaseFragment() {
     }
 
     private fun initView() {
+        binding.swipeToRefresh.setOnRefreshListener {
+            binding.swipeToRefresh.isRefreshing = true
+            adapter.submitList(null)
+            getList()
+        }
+        binding.rvHome.adapter = adapter
     }
 
 }
