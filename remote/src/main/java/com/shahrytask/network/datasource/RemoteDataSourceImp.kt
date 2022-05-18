@@ -20,4 +20,9 @@ class RemoteDataSourceImp @Inject constructor(private val apiServices: ApiServic
 
 
     override suspend fun getAuthors() = apiServices.getAuthors()
+    override suspend fun getPosts(
+        authorId: Int,
+        page: Int,
+        perPage: Int
+    ) = apiServices.getPosts(authorId,page,perPage)
 }

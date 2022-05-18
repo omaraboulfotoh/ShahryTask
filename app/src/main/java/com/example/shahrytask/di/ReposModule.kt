@@ -1,7 +1,9 @@
 package com.example.shahrytask.di
 
 import com.example.shahrytask.data.repos.HomeRepoImp
+import com.example.shahrytask.data.repos.PostRepoImp
 import com.example.shahrytask.domain.repos.HomeRepo
+import com.example.shahrytask.domain.repos.PostRepo
 import com.shahrytask.network.datasource.RemoteDataSource
 import dagger.Module
 import dagger.Provides
@@ -22,6 +24,11 @@ object ReposModule {
     @Provides
     fun provideHomeRepository(remoteDataSource: RemoteDataSource): HomeRepo =
         HomeRepoImp(remoteDataSource)
+
+    @Singleton
+    @Provides
+    fun providePostRepository(remoteDataSource: RemoteDataSource): PostRepo =
+        PostRepoImp(remoteDataSource)
 
 
 }
