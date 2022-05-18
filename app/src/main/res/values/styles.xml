@@ -1,0 +1,15 @@
+<resources>
+
+    <style name="Widget.Theme.BeljoumlaApp.ActionBar.Fullscreen" parent="Widget.AppCompat.ActionBar">
+        <item name="android:background">@color/white</item>
+    </style>
+
+    <style name="RadioButton.enable" parent="Widget.AppCompat.CompoundButton.RadioButton">
+        <item name="buttonTint">@android:color/white</item>
+    </style>
+
+    <style name="RadioButton.disable" parent="Widget.AppCompat.CompoundButton.RadioButton">
+        <item name="buttonTint">@color/darkish_purpble</item>
+    </style>
+
+</resources>

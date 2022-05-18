@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "746369489619",
+    "project_id": "shahrytask",
+    "storage_bucket": "shahrytask.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:746369489619:android:e06026a046968194d95226",
+        "android_client_info": {
+          "package_name": "com.example.shahrytask"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "746369489619-6q0tablv2lcog5q88vsctljl698u72ja.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBo-iiDij_6XXN5V0X_HdlZWVrg3NsjvKI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "746369489619-6q0tablv2lcog5q88vsctljl698u72ja.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
