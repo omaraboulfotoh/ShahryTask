@@ -5,7 +5,7 @@ import javax.inject.Inject
 
 class GetPostsUseCase @Inject constructor(val postRepo: PostRepo) {
 
-    suspend fun doHomeRequest(
+    suspend fun doPostsRequest(
         authorId: Int,
         page: Int,
         perPage: Int

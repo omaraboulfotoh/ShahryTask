@@ -1,4 +1,4 @@
-package com.example.shahrytask.ui.home
+package com.example.shahrytask.ui.posts
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,39 +9,39 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.addRepeatingJob
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.fragment.findNavController
 import com.example.shahrytask.R
-import com.example.shahrytask.databinding.FragmentHomeBinding
+import com.example.shahrytask.databinding.FragmentAuthorPostsBinding
 import com.example.shahrytask.ui.base.BaseFragment
-import com.example.shahrytask.ui.home.adapter.AuthorAdapter
-import com.example.shahrytask.ui.posts.AuthorPostsFragment
+import com.example.shahrytask.ui.posts.adapter.PostAdapter
 import com.shahrytask.network.Result
-import dagger.hilt.android.AndroidEntryPoint
+import com.shahrytask.network.model.responses.AuthorModel
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
+class AuthorPostsFragment : BaseFragment() {
 
-class HomeFragment : BaseFragment() {
-
-    private lateinit var binding: FragmentHomeBinding
-    private val homeViewModel: HomeViewModel by viewModels()
+    private lateinit var binding: FragmentAuthorPostsBinding
+    private val authorPostViewModel: AuthorPostViewModel by viewModels()
 
 
-    private val adapter: AuthorAdapter by lazy {
-        AuthorAdapter {
-            findNavController().navigate(
-                R.id.action_homeFragment_to_postsFragment,
-                AuthorPostsFragment.getBundle(it)
-            )
-        }
+    private val adapter: PostAdapter by lazy {
+        PostAdapter()
     }
+    var page = 1
+
+    private val author by lazy { requireArguments().getParcelable<AuthorModel>(KEY_AUTHOR) }
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = DataBindingUtil.inflate(layoutInflater, R.layout.fragment_home, container, false)
+        binding = DataBindingUtil.inflate(
+            layoutInflater,
+            R.layout.fragment_author_posts,
+            container,
+            false
+        )
         return binding.root
     }
 
@@ -50,14 +50,14 @@ class HomeFragment : BaseFragment() {
 
         binding.lifecycleOwner = this
         initView()
-        getList()
+        getList(page)
     }
 
-    private fun getList() {
+    private fun getList(page: Int) {
         if (networkHelper.isNetworkConnected()) {
             lifecycleScope.launch {
                 addRepeatingJob(Lifecycle.State.RESUMED) {
-                    homeViewModel.doHomeRequest().collect {
+                    authorPostViewModel.doPostsRequest(author!!.id, page).collect {
                         binding.swipeToRefresh.isRefreshing = false
                         when (it) {
                             is Result.Loading -> {
@@ -84,10 +84,28 @@ class HomeFragment : BaseFragment() {
     private fun initView() {
         binding.swipeToRefresh.setOnRefreshListener {
             binding.swipeToRefresh.isRefreshing = true
+            page = 1
             adapter.submitList(null)
-            getList()
+            getList(page)
         }
-        binding.rvHome.adapter = adapter
+
+        binding.rvPosts.adapter = adapter
+        binding.author = author
+        binding.executePendingBindings()
+        binding.viewToolbar.btnBack.setOnClickListener {
+            requireActivity().onBackPressed()
+        }
+    }
+
+    companion object {
+        private const val KEY_AUTHOR = "KeyAuthor"
+        fun getBundle(author: AuthorModel?): Bundle {
+            val bundle = Bundle()
+            author?.let {
+                bundle.putParcelable(KEY_AUTHOR, it)
+            }
+            return bundle
+        }
     }
 
 }
